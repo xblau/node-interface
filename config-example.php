@@ -8,8 +8,8 @@ $nodeconfig = array(
     'password' => 'password',
     'services' => array(
         'connect' => false,
-        'verify' => true,
-        'broadcast' => true,
+        'verify' => false,
+        'broadcast' => false,
     ),
     'onionurl' => '',
     'donations' => '',

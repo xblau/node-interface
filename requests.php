@@ -37,14 +37,6 @@ $getinfo = send_request(
     $nodeconfig['serverurl']
 );
 
-$getbalance = send_request(
-    create_request( 'getbalance' ),
-    $nodeconfig['username'],
-    $nodeconfig['password'],
-    $nodeconfig['serverurl']
-);
-
-
 $getnetinfo = send_request(
     create_request( 'getnetworkinfo' ),
     $nodeconfig['username'],

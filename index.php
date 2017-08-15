@@ -85,7 +85,7 @@ th {
         echo 'This site is also available over tor at <a href="http://' .
             $nodeconfig['onionurl'].'">' . $nodeconfig['onionurl'] . "</a><br>\n";
     }
-    
+
     ?>
 
     <br><!--<noscript><font color="green">Javascript is disabled or not supported on your browser.</font><br><br></noscript>-->
@@ -111,33 +111,7 @@ th {
         <b>Pruned:</b> <code><?php echo $pruned; ?></code>
     </fieldset><br>
 
-    <?php echo $nodeconfig['services']['connect'] ? '' : '<!--' ?>
-    <a name="connect"></a>
-    <fieldset name="connect">
-        <legend>CONNECT TO A NODE</legend>
-        <form method="post">
-            <input type="hidden" name="formid" value="connect">
-            Node address: <input type="text" name="address" required>
-            <input type="submit" value="Connect">
-        </form>
-    </fieldset><br>
-    <?php echo $nodeconfig['services']['connect'] ? '' : '-->' ?>
-
-    <?php echo $nodeconfig['services']['verify'] ? '' : '<!--' ?>
-    <a name="verify"></a>
-    <fieldset>
-        <legend>VERIFY SIGNATURE</legend>
-        <form method="post">
-            <input type="hidden" name="formid" value="verify">
-            Address:<br> <input type="text" name="address" size="50" required><br>
-            Signature:<br> <input type="text" name="signature" size="50" required><br>
-            Message:<br> <textarea rows="4" cols="50" name="message" required></textarea><br><br>
-            <input type="submit" value="Verify" required>
-        </form>
-    </fieldset><br>
-    <?php echo $nodeconfig['services']['verify'] ? '' : '-->' ?>
-
-    <?php echo $nodeconfig['services']['broadcast'] ? '' : '<!--' ?>
+    <?php echo $nodeconfig['broadcast'] ? '' : '<!--' ?>
     <a name="broadcast"></a>
     <fieldset>
         <legend>BROADCAST RAW TRANSACTION</legend>
@@ -148,7 +122,7 @@ th {
             <input type="submit" value="Broadcast">
         </form>
     </fieldset><br>
-    <?php echo $nodeconfig['services']['broadcast'] ? '' : '-->' ?>
+    <?php echo $nodeconfig['broadcast'] ? '' : '-->' ?>
 
     <a name="peers"></a>
     <fieldset>
@@ -220,6 +194,6 @@ th {
     $endscript = microtime( true );
     $loadtime = $endscript - $startscript;
     ?>
-    <i>Made by xBlau. Powered by Litecoin Core. Generated in 
+    <i>Made by xBlau. Powered by Litecoin Core. Generated in
     <?php echo number_format( $loadtime, 4 ) ?> seconds.</i> <br><br>
 </body>

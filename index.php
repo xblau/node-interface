@@ -15,6 +15,13 @@ if( !isset( $formid ) ) {
     require 'forms.php';
 }
 
+function format_bytes( $size, $precision = 2 ) {
+    $base = log( $size, 1024 );
+    $suffixes = array( '', 'KB', 'MB', 'GB', 'TB' );
+
+    return round( pow( 1024, $base - floor( $base ) ), $precision ) .' '. $suffixes[ floor( $base ) ];
+}
+
 $testnet = $getinfo['result']['testnet'] ? 'true' : 'false';
 $pruned  = $getbcinfo['result']['pruned'] ? 'true' : 'false';
 
@@ -109,6 +116,13 @@ th {
         <b>Difficulty:</b> <code><?php echo $getbcinfo['result']['difficulty']; ?></code><br>
         <b>Median time:</b> <code><?php echo date('d/m/Y H:i:s', $getbcinfo['result']['mediantime'] ); ?></code><br>
         <b>Pruned:</b> <code><?php echo $pruned; ?></code>
+    </fieldset><br>
+
+    <a name="netusage"></a>
+    <fieldset>
+        <legend>NETWORK USAGE</legend>
+        <b>Total received:</b> <code><?php echo format_bytes( $getnettotals['result']['totalbytesrecv'] ); ?></code><br>
+        <b>Total sent:</b> <code><?php echo format_bytes( $getnettotals['result']['totalbytessent'] ); ?></code><br>
     </fieldset><br>
 
     <?php echo $nodeconfig['broadcast'] ? '' : '<!--' ?>

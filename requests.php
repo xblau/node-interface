@@ -65,4 +65,11 @@ $getbcinfo = send_request(
     $nodeconfig['serverurl']
 );
 
+$getnettotals = send_request(
+    create_request( 'getnettotals' ),
+    $nodeconfig['username'],
+    $nodeconfig['password'],
+    $nodeconfig['serverurl']
+);
+
 ?>

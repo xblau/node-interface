@@ -209,5 +209,6 @@ th {
     $loadtime = $endscript - $startscript;
     ?>
     <i>Made by xBlau. Powered by Litecoin Core. Generated in
-    <?php echo number_format( $loadtime, 4 ) ?> seconds.</i> <br><br>
+    <?php echo number_format( $loadtime, 4 ) ?> seconds.</i>
+    Source code <a href="https://github.com/xblau/node-interface">here</a>.<br><br>
 </body>

@@ -190,7 +190,7 @@ th {
 
             foreach( $listbanned['result'] as $peer ) {
                 $bansince = date('d/m/Y H:i:s', $peer['ban_created'] );
-                $banuntil = date('d/m/Y H:i:s', $peer['ban_until'] );
+                $banuntil = date('d/m/Y H:i:s', $peer['banned_until'] );
 
                 echo '<tr>';
                 echo '    <td>' . $peer['address'] . '</td>';

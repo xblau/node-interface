@@ -4,12 +4,12 @@ This is a basic web interface to a Litecoin full node. Currently displays info a
 
 If you have any suggestion or problems, feel free to open an issue or pull request.
 
-### Requirements
+### [Requirements](#requirements)
 
 1. Litecoin full node with username/password authentication and RPC enabled.
 2. Web server with PHP(5) and the curl extension.
 
-### Installing
+### [Installing](#installing)
 
 1. Clone the repo or extract the files on any public folder.
 2. Copy `config-example.php` to `config.php` and edit it:
@@ -20,7 +20,7 @@ If you have any suggestion or problems, feel free to open an issue or pull reque
 
 3. **Optionally:** if your web server is publicly accessible, you may want to configure HTTP authentication. Also, as a precaution, please don't use this on a node with a wallet.
 
-### License
+### [License](#license)
 
 This project is free software, licensed under the terms of the MIT License. See the `LICENSE` file on this repository or [opensource.org/licenses/mit](https://opensource.org/licenses/mit).
 

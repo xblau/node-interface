@@ -27,7 +27,7 @@ $pruned  = $getbcinfo['result']['pruned'] ? 'true' : 'false';
 
 ?>
 <!DOCTYPE html>
-<title>Litecoin Node Interface</title>
+<title><?php echo $nodeconfig['pagetitle']; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <?php
 if( !isset( $formid ) ) {
@@ -69,7 +69,7 @@ th {
 </style>
 
 <body>
-    <h1>Litecoin Node Interface</h1>
+    <h1><?php echo $nodeconfig['pagetitle']; ?></h1>
 
     <?php
 
@@ -83,19 +83,11 @@ th {
         die( 'Something went wrong (getinfo failed). Check your config and try again.' );
     }
 
-    if( strlen( $nodeconfig['donations'] ) > 5 ) {
-        echo 'Donate to keep this node running! <a href="litecoin:' .
-            $nodeconfig['donations']. '">' . $nodeconfig['donations'] . "</a><br>\n";
-    }
-
-    if( strlen( $nodeconfig['onionurl'] ) > 5 ) {
-        echo 'This site is also available over tor at <a href="http://' .
-            $nodeconfig['onionurl'].'">' . $nodeconfig['onionurl'] . "</a><br>\n";
-    }
+    echo $nodeconfig['pagedesc'] . PHP_EOL;
 
     ?>
 
-    <br><!--<noscript><font color="green">Javascript is disabled or not supported on your browser.</font><br><br></noscript>-->
+    <br>
 
     <a name="about"></a>
     <fieldset>
@@ -209,6 +201,7 @@ th {
     $loadtime = $endscript - $startscript;
     ?>
     <i>Made by xBlau. Powered by Litecoin Core. Generated in
-    <?php echo number_format( $loadtime, 4 ) ?> seconds.</i>
-    Source code <a href="https://github.com/xblau/node-interface">here</a>.<br><br>
+    <?php echo number_format( $loadtime, 4 ) ?> seconds.
+    Source code <a href="https://github.com/xblau/node-interface">here</a>.
+    </i><br><br>
 </body>

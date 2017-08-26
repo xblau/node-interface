@@ -30,8 +30,8 @@ $pruned  = $getbcinfo['result']['pruned'] ? 'true' : 'false';
 <title><?php echo $nodeconfig['pagetitle']; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <?php
-if( !isset( $formid ) ) {
-    echo '<meta http-equiv="refresh" content="30" >';
+if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
+    echo '<meta http-equiv="refresh" content="'. $nodeconfig['autorefresh'] .'" >';
 }
 ?>
 

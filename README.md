@@ -24,4 +24,5 @@ If you have any suggestion or problems, feel free to open an issue or pull reque
 
 This project is free software, licensed under the terms of the MIT License. See the `LICENSE` file on this repository or [opensource.org/licenses/mit](https://opensource.org/licenses/mit).
 
-If you found this useful, small donations are welcome! `LZgV7GwPYQtCpeXuR4crGZTRzmSEEMKQQH`
+If you found this useful, small donations are welcome!
+`MCgSemkWtKZAFcSmA3XRzFoqumJcYiPbzR` (non-segwit address: `LZgV7GwPYQtCpeXuR4crGZTRzmSEEMKQQH`)

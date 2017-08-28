@@ -72,4 +72,11 @@ $getnettotals = send_request(
     $nodeconfig['serverurl']
 );
 
+$getmpinfo = send_request(
+    create_request( 'getmempoolinfo' ),
+    $nodeconfig['username'],
+    $nodeconfig['password'],
+    $nodeconfig['serverurl']
+);
+
 ?>

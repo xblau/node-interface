@@ -110,6 +110,13 @@ th {
         <b>Pruned:</b> <code><?php echo $pruned; ?></code>
     </fieldset><br>
 
+    <a name="mempool"></a>
+    <fieldset>
+        <legend>TX MEMORY POOL INFO</legend>
+        <b>Transactions:</b> <code><?php echo $getmpinfo['result']['size']; ?></code><br>
+        <b>Size:</b> <code><?php echo format_bytes( $getmpinfo['result']['bytes'] ); ?></code><br>
+    </fieldset><br>
+
     <a name="netusage"></a>
     <fieldset>
         <legend>NETWORK USAGE</legend>

@@ -22,7 +22,6 @@ function format_bytes( $size, $precision = 2 ) {
     return round( pow( 1024, $base - floor( $base ) ), $precision ) .' '. $suffixes[ floor( $base ) ];
 }
 
-$testnet = $getinfo['result']['testnet'] ? 'true' : 'false';
 $pruned  = $getbcinfo['result']['pruned'] ? 'true' : 'false';
 
 ?>
@@ -79,8 +78,8 @@ th {
         exit;
     }
 
-    if( !isset( $getinfo['result']['version'] ) ) {
-        die( 'Something went wrong (getinfo failed). Check your config and try again.' );
+    if( !isset( $getnetinfo['result']['version'] ) ) {
+        die( 'Something went wrong (getnetworkinfo failed). Check your config and try again.' );
     }
 
     echo $nodeconfig['pagedesc'] . PHP_EOL;
@@ -92,11 +91,10 @@ th {
     <a name="about"></a>
     <fieldset>
         <legend>ABOUT THIS NODE</legend>
-        <b>Node version:</b> <code><?php echo $getinfo['result']['version'].' ('.$getinfo['result']['protocolversion'].')';?></code><br>
+        <b>Node version:</b> <code><?php echo $getnetinfo['result']['version'].' ('.$getnetinfo['result']['protocolversion'].')';?></code><br>
         <b>Subversion:</b> <code><?php echo $getnetinfo['result']['subversion']; ?></code><br>
         <b>Local services:</b> <code><?php echo $getnetinfo['result']['localservices']; ?></code><br>
-        <b>Testnet:</b> <code><?php echo $testnet; ?></code><br>
-        <b>Relay fee:</b> <code><?php echo $getinfo['result']['relayfee']; ?> LTC</code>
+        <b>Relay fee:</b> <code><?php echo $getnetinfo['result']['relayfee']; ?> LTC</code>
     </fieldset><br>
 
     <a name="blockchaininfo"></a>

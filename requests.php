@@ -30,13 +30,6 @@ function send_request( $request, $username, $password, $serverurl ) {
     return json_decode( $response, true );
 }
 
-$getinfo = send_request(
-    create_request( 'getinfo' ),
-    $nodeconfig['username'],
-    $nodeconfig['password'],
-    $nodeconfig['serverurl']
-);
-
 $getnetinfo = send_request(
     create_request( 'getnetworkinfo' ),
     $nodeconfig['username'],

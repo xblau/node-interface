@@ -22,6 +22,14 @@ function format_bytes( $size, $precision = 2 ) {
     return round( pow( 1024, $base - floor( $base ) ), $precision ) .' '. $suffixes[ floor( $base ) ];
 }
 
+// https://stackoverflow.com/a/19680778
+function seconds_to_time($seconds) {
+    $dtF = new \DateTime('@0');
+    $dtT = new \DateTime("@$seconds");
+    return $dtF->diff($dtT)->format('%a days, %h hours, %i minutes and %s seconds');
+}
+
+
 $pruned  = $getbcinfo['result']['pruned'] ? 'true' : 'false';
 
 ?>
@@ -95,6 +103,13 @@ th {
         <b>Subversion:</b> <code><?php echo $getnetinfo['result']['subversion']; ?></code><br>
         <b>Local services:</b> <code><?php echo $getnetinfo['result']['localservices']; ?></code><br>
         <b>Relay fee:</b> <code><?php echo $getnetinfo['result']['relayfee']; ?> LTC</code>
+        <?php
+
+        if( isset( $uptime ) ) {
+            echo '<br><b>Uptime:</b> <code>' . seconds_to_time( $uptime['result'] ) . "</code>\n";
+        }
+
+        ?>
     </fieldset><br>
 
     <a name="blockchaininfo"></a>

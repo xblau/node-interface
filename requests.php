@@ -72,4 +72,13 @@ $getmpinfo = send_request(
     $nodeconfig['serverurl']
 );
 
+if( $getnetinfo['result']['version'] > 150000 ) {
+    $uptime = send_request(
+        create_request( 'uptime' ),
+        $nodeconfig['username'],
+        $nodeconfig['password'],
+        $nodeconfig['serverurl']
+    );
+}
+
 ?>

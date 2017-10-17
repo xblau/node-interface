@@ -29,8 +29,9 @@ function seconds_to_time($seconds) {
     return $dtF->diff($dtT)->format('%a days, %h hours, %i minutes and %s seconds');
 }
 
-
-$pruned  = $getbcinfo['result']['pruned'] ? 'true' : 'false';
+$pruned = $getbcinfo['result']['pruned'] ? 'true' : 'false';
+$cpeers = count( $getpeerinfo['result'] );
+$bpeers = count( $listbanned['result'] );
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +39,7 @@ $pruned  = $getbcinfo['result']['pruned'] ? 'true' : 'false';
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <?php
 if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
-    echo '<meta http-equiv="refresh" content="'. $nodeconfig['autorefresh'] .'" >';
+    printf( '<meta http-equiv="refresh" content="%s" >', $nodeconfig['autorefresh'] );
 }
 ?>
 
@@ -106,7 +107,7 @@ th {
         <?php
 
         if( isset( $uptime ) ) {
-            echo '<br><b>Uptime:</b> <code>' . seconds_to_time( $uptime['result'] ) . "</code>\n";
+            printf( "<br><b>Uptime:</b> <code>%s</code>\n", seconds_to_time( $uptime['result'] ) );
         }
 
         ?>
@@ -152,7 +153,7 @@ th {
 
     <a name="peers"></a>
     <fieldset>
-        <legend>CONNECTED PEERS (<?php echo count( $getpeerinfo['result'] ); ?>)</legend>
+        <legend><?php printf( 'CONNECTED PEERS (%s)', $cpeers ); ?></legend>
         <table style="width:100%">
             <tr>
                 <th>addr</th>
@@ -171,13 +172,13 @@ th {
                 $conntime = date('d/m/Y H:i:s', $peer['conntime'] );
 
                 echo '<tr>';
-                echo '    <td>' . $peer['addr'] . '</td>';
-                echo '    <td>' . $peer['services'] . '</td>';
-                echo '    <td title="'.$conntime.'">' . $peer['conntime'] . '</td>';
-                echo '    <td>' . $peer['version'] . '</td>';
-                echo '    <td>' . $peer['subver'] . '</td>';
-                echo '    <td>' . $inbound . '</td>';
-                echo '    <td>' . $peer['banscore'] . '</td>';
+                printf( '<td>%s</td>', $peer['addr'] );
+                printf( '<td>%s</td>', $peer['services'] );
+                printf( '<td title="%s">%s</td>', $conntime, $peer['conntime'] );
+                printf( '<td>%s</td>', $peer['version'] );
+                printf( '<td>%s</td>', $peer['subver'] );
+                printf( '<td>%s</td>', $inbound );
+                printf( '<td>%s</td>', $peer['banscore'] );
                 echo '</tr>';
 
                 $peer['inbound'] ? $tinbound++ : $toutbound++;
@@ -190,7 +191,7 @@ th {
 
     <a name="banned"></a>
     <fieldset>
-        <legend>BANNED PEERS (<?php echo count( $listbanned['result'] ); ?>)</legend>
+        <legend><?php printf( 'BANNED PEERS (%s)', $bpeers ); ?></legend>
         <table style="width:100%">
             <tr>
                 <th>address</th>
@@ -205,10 +206,10 @@ th {
                 $banuntil = date('d/m/Y H:i:s', $peer['banned_until'] );
 
                 echo '<tr>';
-                echo '    <td>' . $peer['address'] . '</td>';
-                echo '    <td title="'.$bansince.'">' . $peer['ban_created'] . '</td>';
-                echo '    <td title="'.$banuntil.'">' . $peer['banned_until'] . '</td>';
-                echo '    <td>' . $peer['ban_reason'] . '</td>';
+                printf( '<td>%s</td>', $peer['address'] );
+                printf( '<td title="%s">%s</td>', $bansince, $peer['ban_created'] );
+                printf( '<td title="%s">%s</td>', $banuntil, $peer['banned_until'] );
+                printf( '<td>%s</td>', $peer['ban_reason'] );
                 echo '</tr>';
             }
 
@@ -220,8 +221,10 @@ th {
     $endscript = microtime( true );
     $loadtime = $endscript - $startscript;
     ?>
-    <i>Made by xBlau. Powered by Litecoin Core. Generated in
-    <?php echo number_format( $loadtime, 4 ) ?> seconds.
-    Source code <a href="https://github.com/xblau/node-interface">here</a>.
-    </i><br><br>
+    <div id="footer" style="text-align: center;">
+        Made by xBlau. Powered by Litecoin Core. Generated in
+        <?php echo number_format( $loadtime, 4 ) ?> seconds.
+        Source code <a href="https://github.com/xblau/node-interface">here</a>.
+        <br><br>
+    </div>
 </body>

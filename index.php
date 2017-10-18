@@ -37,44 +37,12 @@ $bpeers = count( $listbanned['result'] );
 <!DOCTYPE html>
 <title><?php echo $nodeconfig['pagetitle']; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="style.css">
 <?php
 if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
     printf( '<meta http-equiv="refresh" content="%s" >', $nodeconfig['autorefresh'] );
 }
 ?>
-
-<style>
-body {
-    width:900px;
-    margin:0 auto;
-    font-family: 'Consolas';
-    font-size: 14px;
-}
-
-input[type="text"], textarea {
-    font-family: 'Consolas';
-    font-size: 12px;
-}
-
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: center;
-}
-
-th, td {
-    padding: 5px;
-}
-
-tr:hover {
-    background-color: #f5f5f5
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-</style>
 
 <body>
     <h1><?php echo $nodeconfig['pagetitle']; ?></h1>

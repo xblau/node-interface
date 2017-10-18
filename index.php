@@ -37,6 +37,7 @@ $bpeers = count( $listbanned['result'] );
 <!DOCTYPE html>
 <title><?php echo $nodeconfig['pagetitle']; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="shortcut icon" href="favicon.ico" >
 <link rel="stylesheet" href="style.css">
 <?php
 if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {

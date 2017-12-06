@@ -123,7 +123,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
     <a name="peers"></a>
     <fieldset>
         <legend><?php printf( 'CONNECTED PEERS (%s)', $cpeers ); ?></legend>
-        <table style="width:100%">
+        <table>
             <tr>
                 <th>addr</th>
                 <th>services</th>
@@ -161,7 +161,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
     <a name="banned"></a>
     <fieldset>
         <legend><?php printf( 'BANNED PEERS (%s)', $bpeers ); ?></legend>
-        <table style="width:100%">
+        <table>
             <tr>
                 <th>address</th>
                 <th>banned since</th>
@@ -190,8 +190,9 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
     $endscript = microtime( true );
     $loadtime = $endscript - $startscript;
     ?>
-    <div id="footer" style="text-align: center;">
-        Made by xBlau. Powered by Litecoin Core. Generated in
+    <div class="footer">
+        Made by <a href="https://github.com/xblau">xBlau</a>.
+        Powered by Litecoin Core. Generated in
         <?php echo number_format( $loadtime, 4 ) ?> seconds.
         Source code <a href="https://github.com/xblau/node-interface">here</a>.
         <br><br>

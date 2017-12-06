@@ -6,7 +6,7 @@ body {
 }
 
 input[type="text"], textarea {
-    font-family: 'Consolas';
+    font-family: 'Consolas', monospace;
     font-size: 12px;
 }
 
@@ -16,7 +16,12 @@ table, th, td {
     text-align: center;
 }
 
+table {
+    width: 100%;
+}
+
 th, td {
+    font-size: 12px;
     padding: 5px;
 }
 
@@ -27,4 +32,9 @@ tr:hover {
 th {
     background-color: #4CAF50;
     color: white;
+}
+
+.footer {
+    text-align: center;
+    font-size: 9px;
 }

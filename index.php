@@ -97,7 +97,13 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
     <fieldset>
         <legend>TX MEMORY POOL INFO</legend>
         <b>Transactions:</b> <code><?php echo $getmpinfo['result']['size']; ?></code><br>
-        <b>Size:</b> <code><?php echo format_bytes( $getmpinfo['result']['bytes'] ); ?></code><br>
+        <b>Size:</b> <code><?php
+            if( $getmpinfo['result']['size'] == 0 ) {
+                echo "empty";
+            } else {
+                echo format_bytes( $getmpinfo['result']['bytes'] );
+            }
+        ?></code><br>
     </fieldset><br>
 
     <a name="netusage"></a>

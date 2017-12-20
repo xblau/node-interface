@@ -14,11 +14,13 @@ function create_request( $method, $params = array() ) {
 }
 
 function send_request( $request, $username='', $password='', $serverurl='' ) {
+    global $nodeconfig;
+
     // use node config if no args given
     if( empty($username)) { $username = $nodeconfig['username']; }
     if( empty($password)) { $password = $nodeconfig['password']; }
     if( empty($serverurl)) { $serverurl = $nodeconfig['serverurl']; }
- 
+
     $conn = curl_init();
 
     curl_setopt( $conn, CURLOPT_URL, $serverurl );

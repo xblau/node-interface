@@ -13,7 +13,12 @@ function create_request( $method, $params = array() ) {
     return json_encode( $request );
 }
 
-function send_request( $request, $username, $password, $serverurl ) {
+function send_request( $request, $username='', $password='', $serverurl='' ) {
+    // use node config if no args given
+    if( empty($username)) { $username = $nodeconfig['username']; }
+    if( empty($password)) { $password = $nodeconfig['password']; }
+    if( empty($serverurl)) { $serverurl = $nodeconfig['serverurl']; }
+ 
     $conn = curl_init();
 
     curl_setopt( $conn, CURLOPT_URL, $serverurl );
@@ -31,53 +36,32 @@ function send_request( $request, $username, $password, $serverurl ) {
 }
 
 $getnetinfo = send_request(
-    create_request( 'getnetworkinfo' ),
-    $nodeconfig['username'],
-    $nodeconfig['password'],
-    $nodeconfig['serverurl']
+    create_request( 'getnetworkinfo' )
 );
 
 $getpeerinfo = send_request(
-    create_request( 'getpeerinfo' ),
-    $nodeconfig['username'],
-    $nodeconfig['password'],
-    $nodeconfig['serverurl']
+    create_request( 'getpeerinfo' )
 );
 
 $listbanned = send_request(
-    create_request( 'listbanned' ),
-    $nodeconfig['username'],
-    $nodeconfig['password'],
-    $nodeconfig['serverurl']
+    create_request( 'listbanned' )
 );
 
 $getbcinfo = send_request(
-    create_request( 'getblockchaininfo' ),
-    $nodeconfig['username'],
-    $nodeconfig['password'],
-    $nodeconfig['serverurl']
+    create_request( 'getblockchaininfo' )
 );
 
 $getnettotals = send_request(
-    create_request( 'getnettotals' ),
-    $nodeconfig['username'],
-    $nodeconfig['password'],
-    $nodeconfig['serverurl']
+    create_request( 'getnettotals' )
 );
 
 $getmpinfo = send_request(
-    create_request( 'getmempoolinfo' ),
-    $nodeconfig['username'],
-    $nodeconfig['password'],
-    $nodeconfig['serverurl']
+    create_request( 'getmempoolinfo' )
 );
 
 if( $getnetinfo['result']['version'] > 150000 ) {
     $uptime = send_request(
-        create_request( 'uptime' ),
-        $nodeconfig['username'],
-        $nodeconfig['password'],
-        $nodeconfig['serverurl']
+        create_request( 'uptime' )
     );
 }
 

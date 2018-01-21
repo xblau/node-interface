@@ -56,7 +56,9 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
         exit;
     }
 
-    if( !isset( $getnetinfo['result']['version'] ) ) {
+    if( isset($getnetinfo['error']['code']) ) {
+        die( 'Request failed with message: ' . $getnetinfo['error']['message'] );
+    } elseif( !isset( $getnetinfo['result']['version'] ) ) {
         die( 'Something went wrong (getnetworkinfo failed). Check your config and try again.' );
     }
 

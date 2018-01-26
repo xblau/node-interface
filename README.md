@@ -15,11 +15,11 @@ If you have any problems or suggestions, feel free to open an issue or pull requ
 
 ### [Security](#security)
 
-I *think* this is secure (I'm running it), but that doesn't mean there's not a security hole somewhere. If you find one, please contact me.
+I *think* this is secure, but that doesn't mean there's not a security hole somewhere. If you find one, please contact me.
 
-Before doing anything, please consider reviewing the source code (or ask someone you trust to do it) to check that it's not doing anything malicious.
+Before doing anything, consider reviewing the source code (or ask someone you trust to do it) to check that it's not doing anything malicious.
 
-There's not any type of authentication mechanism built in. If you want to restrict access, please use the features provided by your web server to do so.
+There's not any type of authentication mechanism built in. If you want to restrict access, use the features provided by your web server to do so.
 
 **WARNING:** if your full node has a wallet enabled, this software has access to it. It no longer prevents you to run it if a wallet is found, but please *do not use this* if your node has a non-zero balance.
 
@@ -30,6 +30,8 @@ To run this you need a web server (like Apache) with a recent version of PHP wit
 On Debian and derivates (Ubuntu, etc) you can install everything with
     
     # apt-get install apache2 libapache2-mod-php php-curl
+
+For other distros, there are a lot of awesome tutorials online you can check.
 
 ### [Installing](#installing)
 

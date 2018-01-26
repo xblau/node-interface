@@ -1,6 +1,8 @@
 # Litecoin Node Interface
 
-This is a basic web status page for Litecoin<sup>1</sup> full nodes. It's not pretty, but it works. You can use it to check thing like:
+This is a basic web status page for Litecoin<sup>1</sup> full nodes. It's not pretty, but it works. If you want to see how it looks, a demo is available [here](https://ltc.xblau.com).
+
+You can use it to check thing like:
 
 - **Node uptime** (but only on very recent versions of Litecoin Core).
 - **Sync status** (by looking at the number of blocks/headers).

@@ -10,8 +10,8 @@ $nodeconfig = array(
     'pagedesc' => '',
     'autorefresh' => 120,
     'serverurl' => 'http://127.0.0.1:9332/',
-    'username' => 'username',
-    'password' => 'password',
+    'username' => 'rpcuser',
+    'password' => 'rpcpass',
     'broadcast' => false,
 );
 

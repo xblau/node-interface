@@ -65,4 +65,4 @@ Simply run `git pull`. This should get any new commits and apply them to your lo
 
 This project is free software, licensed under the terms of the MIT License. See the `LICENSE` file on this repository or [opensource.org/licenses/mit](https://opensource.org/licenses/mit).
 
-If you liked or found this useful, starring this repo on GitHub or sending an email (even if it's just a "Hey, I'm using your project") helps a lot! And in case you want to send a tip: `LQt7EgaLrtBM4d3TyrMF79PxhyD2wxr5Yj`.
+If you liked or found this useful, starring this repo on GitHub or sending an email (even if it's just a "Hey, I'm using your project") helps a lot! Also, in case you want to send a tip: `LXBLauKyugeQGY2m8JZSMQJzc9rR1yNXgR`.

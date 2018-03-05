@@ -74,7 +74,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
         <b>Node version:</b> <code><?php echo $getnetinfo['result']['version'].' ('.$getnetinfo['result']['protocolversion'].')';?></code><br>
         <b>Subversion:</b> <code><?php echo $getnetinfo['result']['subversion']; ?></code><br>
         <b>Local services:</b> <code><?php echo $getnetinfo['result']['localservices']; ?></code><br>
-        <b>Relay fee:</b> <code><?php echo $getnetinfo['result']['relayfee']; ?> LTC</code>
+        <b>Relay fee:</b> <code><?php echo $getnetinfo['result']['relayfee']; ?></code>
         <?php
 
         if( isset( $uptime ) ) {
@@ -200,8 +200,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
     ?>
     <div class="footer">
         Made by <a href="https://github.com/xblau">xBlau</a>.
-        Powered by Litecoin Core. Generated in
-        <?php echo number_format( $loadtime, 4 ) ?> seconds.
+        Powered by Core. Generated in <?php echo number_format( $loadtime, 4 ) ?> seconds.
         Source code <a href="https://github.com/xblau/node-interface">here</a>.
         <br><br>
     </div>

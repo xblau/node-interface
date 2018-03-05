@@ -6,7 +6,7 @@ defined( 'NODEMON_RUNNING') || die( 'Access denied.' );
 // for more info about these options.
 
 $nodeconfig = array(
-    'pagetitle' => 'Litecoin Node Interface',
+    'pagetitle' => 'Node Interface',
     'pagedesc' => '',
     'autorefresh' => 120,
     'serverurl' => 'http://127.0.0.1:9332/',

@@ -68,7 +68,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
 
     <br>
 
-    <a name="about"></a>
+    <a id="about"></a>
     <fieldset>
         <legend>ABOUT THIS NODE</legend>
         <b>Node version:</b> <code><?php echo $getnetinfo['result']['version'].' ('.$getnetinfo['result']['protocolversion'].')';?></code><br>
@@ -84,7 +84,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
         ?>
     </fieldset><br>
 
-    <a name="blockchaininfo"></a>
+    <a id="blockchaininfo"></a>
     <fieldset>
         <legend>BLOCKCHAIN INFO</legend>
         <b>Chain:</b> <code><?php echo $getbcinfo['result']['chain']; ?></code><br>
@@ -95,7 +95,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
         <b>Pruned:</b> <code><?php echo $pruned; ?></code>
     </fieldset><br>
 
-    <a name="mempool"></a>
+    <a id="mempool"></a>
     <fieldset>
         <legend>TX MEMORY POOL INFO</legend>
         <b>Transactions:</b> <code><?php echo $getmpinfo['result']['size']; ?></code><br>
@@ -108,7 +108,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
         ?></code><br>
     </fieldset><br>
 
-    <a name="netusage"></a>
+    <a id="netusage"></a>
     <fieldset>
         <legend>NETWORK USAGE</legend>
         <b>Total received:</b> <code><?php echo format_bytes( $getnettotals['result']['totalbytesrecv'] ); ?></code><br>
@@ -116,7 +116,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
     </fieldset><br>
 
     <?php echo $nodeconfig['broadcast'] ? '' : '<!--' ?>
-    <a name="broadcast"></a>
+    <a id="broadcast"></a>
     <fieldset>
         <legend>BROADCAST RAW TRANSACTION</legend>
         <form method="post">
@@ -128,7 +128,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
     </fieldset><br>
     <?php echo $nodeconfig['broadcast'] ? '' : '-->' ?>
 
-    <a name="peers"></a>
+    <a id="peers"></a>
     <fieldset>
         <legend><?php printf( 'CONNECTED PEERS (%s)', $cpeers ); ?></legend>
         <table>
@@ -166,7 +166,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
         <br><b>Total inbound/outbound:</b> <?php echo "$tinbound/$toutbound"; ?>
     </fieldset><br>
 
-    <a name="banned"></a>
+    <a id="banned"></a>
     <fieldset>
         <legend><?php printf( 'BANNED PEERS (%s)', $bpeers ); ?></legend>
         <table>

@@ -136,9 +136,12 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
                 $inbound = $peer['inbound'] ? 'true' : 'false';
                 $conntime = date('d/m/Y H:i:s', $peer['conntime'] );
 
+                $servbits  = hexdec('0x' . $peer['services']);
+                $servnames = decode_services($servbits);
+
                 echo '<tr>';
                 printf( '<td>%s</td>', $peer['addr'] );
-                printf( '<td>%s</td>', $peer['services'] );
+                printf( '<td title="%s">%s</td>', $servnames, '0x'.dechex($servbits) );
                 printf( '<td title="%s">%s</td>', $conntime, $peer['conntime'] );
                 printf( '<td>%s</td>', $peer['version'] );
                 printf( '<td>%s</td>', $peer['subver'] );

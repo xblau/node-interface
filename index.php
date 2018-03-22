@@ -80,6 +80,13 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
         <b>Headers:</b> <code><?php echo $getbcinfo['result']['headers']; ?></code><br>
         <b>Difficulty:</b> <code><?php echo $getbcinfo['result']['difficulty']; ?></code><br>
         <b>Median time:</b> <code><?php echo date('d/m/Y H:i:s', $getbcinfo['result']['mediantime'] ); ?></code><br>
+        <?php
+
+        if(isset($getbcinfo['result']['size_on_disk'])) {
+            printf("<b>Size on disk:</b> <code>%s</code><br>\n", format_bytes($getbcinfo['result']['size_on_disk']));
+        }
+
+        ?>
         <b>Pruned:</b> <code><?php echo $pruned; ?></code>
     </fieldset><br>
 

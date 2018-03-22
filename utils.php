@@ -24,6 +24,7 @@ function decode_services( $flags ) {
         ['BLOOM',   (1 << 2)],
         ['WITNESS', (1 << 3)],
         ['XTHIN',   (1 << 4)],
+        ['NETWORK_LIMITED', (1 << 10)],
     ];
 
     foreach( $services as $service ) {

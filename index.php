@@ -21,6 +21,9 @@ $pruned = $getbcinfo['result']['pruned'] ? 'true' : 'false';
 $cpeers = count( $getpeerinfo['result'] );
 $bpeers = count( $listbanned['result'] );
 
+$localservbits  = hexdec('0x'.$getnetinfo['result']['localservices']);
+$localservnames = decode_services($localservbits);
+
 ?>
 <!DOCTYPE html>
 <title><?php echo $nodeconfig['pagetitle']; ?></title>
@@ -61,7 +64,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
         <legend>ABOUT THIS NODE</legend>
         <b>Node version:</b> <code><?php echo $getnetinfo['result']['version'].' ('.$getnetinfo['result']['protocolversion'].')';?></code><br>
         <b>Subversion:</b> <code><?php echo $getnetinfo['result']['subversion']; ?></code><br>
-        <b>Local services:</b> <code><?php echo $getnetinfo['result']['localservices']; ?></code><br>
+        <b>Local services:</b> <code><?php printf("%s (0x%s)", $localservnames, dechex($localservbits)); ?></code><br>
         <b>Relay fee:</b> <code><?php echo $getnetinfo['result']['relayfee']; ?></code>
         <?php
 
@@ -148,7 +151,7 @@ if( !isset( $formid ) && $nodeconfig['autorefresh'] > 0 ) {
 
                 echo '<tr>';
                 printf( '<td>%s</td>', $peer['addr'] );
-                printf( '<td title="%s">%s</td>', $servnames, '0x'.dechex($servbits) );
+                printf( '<td title="%s">0x%s</td>', $servnames, dechex($servbits) );
                 printf( '<td title="%s">%s</td>', $conntime, $peer['conntime'] );
                 printf( '<td>%s</td>', $peer['version'] );
                 printf( '<td>%s</td>', $peer['subver'] );

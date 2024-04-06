@@ -26,6 +26,7 @@ function decode_services( $flags ) {
         ['XTHIN',   (1 << 4)],
         ['COMPACT_FILTERS', (1 << 6)],
         ['NETWORK_LIMITED', (1 << 10)],
+        ['MWEB_LIGHT_CLIENT', (1 << 23)],
         ['MWEB', (1 << 24)],
     ];
 
